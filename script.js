@@ -1,63 +1,52 @@
-// === RESERVIERUNG SPEICHERN ===
+// Scroll-Animation für Spezialitäten
 document.addEventListener("DOMContentLoaded", () => {
-  const resForm = document.getElementById("reservierungForm");
-  if (resForm) {
-    resForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("scroll-visible");
+      }
+    });
+  }, { threshold: 0.1 });
 
+  document.querySelectorAll(".gericht").forEach(el => observer.observe(el));
+});
+
+// === Reservierung speichern ===
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("reservierungForm");
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
       const name = document.getElementById("name").value;
       const datum = document.getElementById("datum").value;
       const zeit = document.getElementById("zeit").value;
       const personen = document.getElementById("personen").value;
       const wunsch = document.getElementById("wunsch").value;
 
-      const neueReservierung = {
-        name,
-        date: datum,
-        time: zeit,
-        guests: personen,
-        notes: wunsch,
-      };
+      const eintrag = { name, datum, zeit, personen, wunsch };
+      const alle = JSON.parse(localStorage.getItem("reservierungen") || "[]");
+      alle.push(eintrag);
+      localStorage.setItem("reservierungen", JSON.stringify(alle));
 
-      const gespeichert = JSON.parse(localStorage.getItem("reservierungen")) || [];
-      gespeichert.push(neueReservierung);
-      localStorage.setItem("reservierungen", JSON.stringify(gespeichert));
-
-      document.getElementById("feedback").textContent = "Reservierung erfolgreich gespeichert!";
-      resForm.reset();
+      document.getElementById("feedback").textContent = "Reservierung gespeichert!";
+      form.reset();
     });
   }
 
-  // === ADMINBEREICH: LOGIN-CHECK BEI SEITENLADUNG ===
-  const adminUserField = document.getElementById("admin-user");
-  if (adminUserField) {
+  // === Admin Login ===
+  if (document.getElementById("admin-user")) {
     loadIfLoggedIn();
   }
-
-  // === Scroll-Animation für fade-in Elemente ===
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach((el) => {
-    observer.observe(el);
-  });
 });
 
 function checkLogin() {
   const user = document.getElementById("admin-user").value;
   const pass = document.getElementById("admin-pass").value;
-  const msg = document.getElementById("login-msg");
-
   if (user === "admin" && pass === "1234") {
     localStorage.setItem("adminLoggedIn", "true");
     loadIfLoggedIn();
   } else {
-    msg.textContent = "Zugangsdaten falsch!";
+    document.getElementById("login-msg").textContent = "Falscher Benutzername oder Code.";
   }
 }
 
@@ -65,7 +54,7 @@ function loadIfLoggedIn() {
   if (localStorage.getItem("adminLoggedIn") === "true") {
     document.getElementById("login-area").style.display = "none";
     document.getElementById("admin-area").style.display = "block";
-    zeigeReservierungen();
+    ladeReservierungen();
   }
 }
 
@@ -74,20 +63,19 @@ function logout() {
   location.reload();
 }
 
-function zeigeReservierungen() {
-  const daten = JSON.parse(localStorage.getItem("reservierungen")) || [];
+function ladeReservierungen() {
+  const daten = JSON.parse(localStorage.getItem("reservierungen") || "[]");
   const tbody = document.getElementById("res-liste");
   if (!tbody) return;
-
   tbody.innerHTML = "";
-  daten.forEach((eintrag) => {
+  daten.forEach(eintrag => {
     const zeile = document.createElement("tr");
     zeile.innerHTML = `
       <td>${eintrag.name}</td>
-      <td>${eintrag.date}</td>
-      <td>${eintrag.time}</td>
-      <td>${eintrag.guests}</td>
-      <td>${eintrag.notes}</td>
+      <td>${eintrag.datum}</td>
+      <td>${eintrag.zeit}</td>
+      <td>${eintrag.personen}</td>
+      <td>${eintrag.wunsch}</td>
     `;
     tbody.appendChild(zeile);
   });
