@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservierung – Fam Linh</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Fam Linh</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="index.html#speisekarte">Speisekarte</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+    <h2>Tisch reservieren</h2>
+    <form id="reservierungForm">
+      <input type="text" id="name" placeholder="Ihr Name" required />
+      <input type="date" id="datum" required />
+      <input type="time" id="zeit" required />
+      <input type="number" id="personen" placeholder="Anzahl Gäste" required />
+      <textarea id="wunsch" placeholder="Besondere Wünsche (optional)"></textarea>
+      <button type="submit">Reservierung absenden</button>
+      <p id="feedback" style="color: green;"></p>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Fam Linh – Vietnamese Cuisine</p>
+  </footer>
+</body>
+</html>
