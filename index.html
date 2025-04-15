@@ -2,62 +2,92 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fam Linh – Vietnamese Cuisine</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
 </head>
 <body>
   <header>
-    <div class="logo">Fam Linh</div>
-    <nav>
-      <a href="#ueber-uns">Über uns</a>
-      <a href="#spezialitaeten">Spezialitäten</a>
-      <a href="#oeffnungszeiten">Öffnungszeiten</a>
-      <a href="#anfahrt">Anfahrt</a>
-      <a href="reservierung.html">Reservierung</a>
-    </nav>
+    <div class="container">
+      <h1>Fam Linh</h1>
+      <nav>
+        <ul>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#spezialitaeten">Spezialitäten</a></li>
+          <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
+          <li><a href="#anfahrt">Anfahrt</a></li>
+          <li><a href="reservierung.html">Reservierung</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Fam Linh – Vietnamese Cuisine</h1>
-    <p>Genießen Sie authentische vietnamesische Küche mit Stil.</p>
-  </section>
-
-  <section id="ueber-uns">
-    <h2>Über uns</h2>
-    <p>
-      Willkommen bei <strong>Fam Linh</strong> – Ihrem Ort für edle vietnamesische Kochkunst. Wir verbinden traditionelle
-      Rezepte mit einem modernen Ambiente, damit Sie nicht nur essen, sondern ein Erlebnis genießen.
-    </p>
-  </section>
-
-  <section id="spezialitaeten">
-    <h2>Unsere Spezialitäten</h2>
-    <div class="gerichte">
-      <div class="gericht"><img src="img1.jpg" alt="Pho"><h3>Pho Bo</h3><p>Würzige Rinderbrühe mit Reisnudeln</p></div>
-      <div class="gericht"><img src="img2.jpg" alt="Banh Mi"><h3>Banh Mi</h3><p>Vietnamesisches Baguette mit frischen Zutaten</p></div>
-      <div class="gericht"><img src="img3.jpg" alt="Frühlingsrollen"><h3>Cha Gio</h3><p>Knusprige Frühlingsrollen mit Fleisch oder Gemüse</p></div>
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Fam Linh – Vietnamese Cuisine</h2>
+      <p>Genießen Sie authentische vietnamesische Küche mit Stil.</p>
     </div>
   </section>
 
-  <section id="oeffnungszeiten">
-    <h2>Öffnungszeiten</h2>
-    <p><strong>Montag – Freitag:</strong> 11:30 – 14:30 & 17:30 – 22:00 Uhr</p>
-    <p><strong>Samstag:</strong> 12:00 – 22:30 Uhr</p>
-    <p><strong>Sonntag:</strong> 12:00 – 21:30 Uhr</p>
-    <p><strong>Dienstag:</strong> Ruhetag</p>
+  <section id="ueber-uns" class="ueber-uns">
+    <div class="container">
+      <h2>Über uns</h2>
+      <p>Willkommen bei <strong>Fam Linh</strong> – Ihrem Ort für edle vietnamesische Kochkunst. Wir verbinden traditionelle Rezepte mit einem modernen Ambiente, damit Sie nicht nur essen, sondern ein Erlebnis genießen.</p>
+      <img src="kochteam.jpg" alt="Kochteam" class="chef-img" />
+    </div>
   </section>
 
-  <section id="anfahrt">
-    <h2>Anfahrt</h2>
-    <p>Fam Linh – Vietnamese Cuisine<br>Musterstraße 12<br>89518 Heidenheim</p>
-    <p>Parkplätze direkt vor dem Restaurant.<br>Haltestelle: Marktplatz (Linie 2, 5, 6)</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <section id="spezialitaeten" class="spezialitaeten">
+    <div class="container">
+      <h2>Unsere Spezialitäten</h2>
+      <div class="card-container">
+        <div class="card fade-in">
+          <img src="pho.jpg" alt="Pho" />
+          <h3>Pho Bo</h3>
+          <p>Würzige Rindersuppe mit Reisnudeln und frischen Kräutern.</p>
+        </div>
+        <div class="card fade-in">
+          <img src="summerrolls.jpg" alt="Summer Rolls" />
+          <h3>Goi Cuon</h3>
+          <p>Frische Sommerrollen mit Garnelen und Erdnusssoße.</p>
+        </div>
+        <div class="card fade-in">
+          <img src="buncha.jpg" alt="Bun Cha" />
+          <h3>Bun Cha</h3>
+          <p>Gegrilltes Schweinefleisch mit Reisnudeln und Fischsoße.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oeffnungszeiten" class="oeffnungszeiten">
+    <div class="container">
+      <h2>Öffnungszeiten</h2>
+      <p><strong>Montag – Freitag:</strong> 11:30 – 14:30 & 17:30 – 22:00 Uhr</p>
+      <p><strong>Samstag:</strong> 12:00 – 22:30 Uhr</p>
+      <p><strong>Sonntag:</strong> 12:00 – 21:30 Uhr</p>
+      <p><strong>Dienstag:</strong> Ruhetag</p>
+    </div>
+  </section>
+
+  <section id="anfahrt" class="anfahrt">
+    <div class="container">
+      <h2>Anfahrt</h2>
+      <p>Fam Linh – Vietnamese Cuisine<br/>
+        Musterstraße 12<br/>
+        89518 Heidenheim</p>
+      <p>Parkplätze direkt vor dem Restaurant.<br/>Haltestelle: Marktplatz (Linie 2, 5, 6)</p>
+      <iframe src="https://maps.google.com/maps?q=Heidenheim%20Musterstraße%2012&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Fam Linh – Vietnamese Cuisine</p>
-    <a href="admin.html">Admin Login</a>
+    <div class="container">
+      <p>&copy; 2025 Fam Linh – Vietnamese Cuisine</p>
+      <a href="admin.html" class="admin-link">Admin Login</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
