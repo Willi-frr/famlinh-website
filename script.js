@@ -28,11 +28,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === ADMINBEREICH: LOGIN ===
-  const adminBtn = document.getElementById("admin-user");
-  if (adminBtn) {
+  // === ADMINBEREICH: LOGIN-CHECK BEI SEITENLADUNG ===
+  const adminUserField = document.getElementById("admin-user");
+  if (adminUserField) {
     loadIfLoggedIn();
   }
+
+  // === Scroll-Animation für fade-in Elemente ===
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach((el) => {
+    observer.observe(el);
+  });
 });
 
 function checkLogin() {
@@ -64,8 +77,9 @@ function logout() {
 function zeigeReservierungen() {
   const daten = JSON.parse(localStorage.getItem("reservierungen")) || [];
   const tbody = document.getElementById("res-liste");
-  tbody.innerHTML = "";
+  if (!tbody) return;
 
+  tbody.innerHTML = "";
   daten.forEach((eintrag) => {
     const zeile = document.createElement("tr");
     zeile.innerHTML = `
