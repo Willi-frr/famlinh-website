@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login – Fam Linh</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .admin-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #fdfaf6;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .admin-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2e5339;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .reservations {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Benutzername" required />
+      <input type="password" id="password" placeholder="Code" required />
+      <button type="submit">Einloggen</button>
+    </form>
+
+    <div id="adminContent" class="hidden">
+      <h3>Reservierungen</h3>
+      <div class="reservations">
+        <p><strong>Beispielreservierung:</strong></p>
+        <p>Name: Max Mustermann</p>
+        <p>Datum: 25.04.2025</p>
+        <p>Gäste: 2</p>
+        <p>Besondere Wünsche: vegan, Geburtstag</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const adminContent = document.getElementById("adminContent");
+
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Hier kannst du Benutzername und Code ändern
+      if (username === "admin" && password === "12345") {
+        loginForm.classList.add("hidden");
+        adminContent.classList.remove("hidden");
+      } else {
+        alert("Falscher Benutzername oder Code.");
+      }
+    });
+  </script>
+</body>
+</html>
