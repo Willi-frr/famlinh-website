@@ -1,4 +1,3 @@
-/* Basislayout */
 * {
   margin: 0;
   padding: 0;
@@ -50,7 +49,6 @@ header {
   color: #d4c08a;
 }
 
-/* Hero-Bereich */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -68,7 +66,6 @@ header {
   color: #555;
 }
 
-/* Sektionen */
 .section {
   padding: 40px 20px;
   max-width: 1000px;
@@ -78,7 +75,8 @@ header {
 .section h2 {
   font-size: 28px;
   color: #2e5339;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .section p,
@@ -88,7 +86,53 @@ header {
   margin-bottom: 10px;
 }
 
-/* Formular */
+.zeiten-liste {
+  list-style: none;
+  padding-left: 0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.spezialitaeten-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.spezialitaet-box {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 280px;
+}
+
+.spezialitaet-box:hover {
+  transform: translateY(-5px);
+}
+
+.spezialitaet-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.spezialitaet-box h3 {
+  color: #2e5339;
+  font-size: 20px;
+  margin: 15px 0 5px;
+}
+
+.spezialitaet-box p {
+  padding: 0 15px 20px;
+  font-size: 16px;
+  color: #555;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -119,7 +163,6 @@ button:hover {
   background-color: #3c6f50;
 }
 
-/* Admin-Reservierungstabelle */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -137,7 +180,6 @@ table th {
   background-color: #eae5d8;
 }
 
-/* Footer */
 footer {
   background-color: #2e5339;
   color: white;
@@ -152,6 +194,18 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Scroll-Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive */
@@ -169,41 +223,8 @@ footer a:hover {
   .hero p {
     font-size: 16px;
   }
-}
-.spezialitaeten-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
 
-.spezialitaet-box {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.spezialitaet-box:hover {
-  transform: translateY(-5px);
-}
-
-.spezialitaet-box img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.spezialitaet-box h3 {
-  color: #2e5339;
-  font-size: 20px;
-  margin: 15px 0 5px;
-}
-
-.spezialitaet-box p {
-  padding: 0 15px 20px;
-  font-size: 16px;
-  color: #555;
+  .spezialitaet-box {
+    width: 90%;
+  }
 }
