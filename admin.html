@@ -9,12 +9,10 @@
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="logo">Fam Linh</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Start</a></li>
-        <li><a href="reservierung.html">Reservierung</a></li>
-      </ul>
+    <div class="logo">Fam Linh</div>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="reservierung.html">Reservierung</a>
     </nav>
   </header>
 
@@ -24,7 +22,7 @@
       <input type="text" id="admin-user" placeholder="Benutzername" />
       <input type="password" id="admin-pass" placeholder="Code" />
       <button onclick="checkLogin()">Login</button>
-      <p id="login-msg" style="color: red;"></p>
+      <p id="login-msg" style="color: red; margin-top: 10px;"></p>
     </div>
 
     <div id="admin-area" style="display: none;">
@@ -40,7 +38,7 @@
           </tr>
         </thead>
         <tbody id="res-liste">
-          <!-- Wird dynamisch eingefügt -->
+          <!-- Inhalte werden per JavaScript geladen -->
         </tbody>
       </table>
       <button onclick="logout()" style="margin-top: 20px;">Logout</button>
@@ -48,7 +46,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Fam Linh – Vietnamese Cuisine</p>
+    <p>© 2025 Fam Linh – Vietnamese Cuisine</p>
   </footer>
 </body>
 </html>
