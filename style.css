@@ -170,3 +170,40 @@ footer a:hover {
     font-size: 16px;
   }
 }
+.spezialitaeten-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.spezialitaet-box {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.spezialitaet-box:hover {
+  transform: translateY(-5px);
+}
+
+.spezialitaet-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.spezialitaet-box h3 {
+  color: #2e5339;
+  font-size: 20px;
+  margin: 15px 0 5px;
+}
+
+.spezialitaet-box p {
+  padding: 0 15px 20px;
+  font-size: 16px;
+  color: #555;
+}
