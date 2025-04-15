@@ -2,74 +2,53 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login – Fam Linh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adminbereich – Fam Linh</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .admin-container {
-      max-width: 400px;
-      margin: 100px auto;
-      padding: 30px;
-      background-color: #fdfaf6;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
-    }
-
-    .admin-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2e5339;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .reservations {
-      margin-top: 20px;
-      border-top: 1px solid #ccc;
-      padding-top: 20px;
-    }
-  </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="admin-container">
-    <h2>Admin Login</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Benutzername" required />
-      <input type="password" id="password" placeholder="Code" required />
-      <button type="submit">Einloggen</button>
-    </form>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Fam Linh</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="reservierung.html">Reservierung</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div id="adminContent" class="hidden">
-      <h3>Reservierungen</h3>
-      <div class="reservations">
-        <p><strong>Beispielreservierung:</strong></p>
-        <p>Name: Max Mustermann</p>
-        <p>Datum: 25.04.2025</p>
-        <p>Gäste: 2</p>
-        <p>Besondere Wünsche: vegan, Geburtstag</p>
-      </div>
+  <main class="section">
+    <div id="login-area">
+      <h2>Admin Login</h2>
+      <input type="text" id="admin-user" placeholder="Benutzername" />
+      <input type="password" id="admin-pass" placeholder="Code" />
+      <button onclick="checkLogin()">Login</button>
+      <p id="login-msg" style="color: red;"></p>
     </div>
-  </div>
 
-  <script>
-    const loginForm = document.getElementById("loginForm");
-    const adminContent = document.getElementById("adminContent");
+    <div id="admin-area" style="display: none;">
+      <h2>Reservierungen</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Datum</th>
+            <th>Uhrzeit</th>
+            <th>Gäste</th>
+            <th>Wünsche</th>
+          </tr>
+        </thead>
+        <tbody id="res-liste">
+          <!-- Wird dynamisch eingefügt -->
+        </tbody>
+      </table>
+      <button onclick="logout()" style="margin-top: 20px;">Logout</button>
+    </div>
+  </main>
 
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      // Hier kannst du Benutzername und Code ändern
-      if (username === "admin" && password === "12345") {
-        loginForm.classList.add("hidden");
-        adminContent.classList.remove("hidden");
-      } else {
-        alert("Falscher Benutzername oder Code.");
-      }
-    });
-  </script>
+  <footer>
+    <p>&copy; 2025 Fam Linh – Vietnamese Cuisine</p>
+  </footer>
 </body>
 </html>
